@@ -2,6 +2,8 @@ const express = require('express');
 
 const app = express();
 
+//teste
+
 app.get('/projects', (request, response) => {
   return response.json([
     'Projeto 1',
