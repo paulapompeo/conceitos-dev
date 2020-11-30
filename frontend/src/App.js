@@ -7,11 +7,12 @@ import './App.css';
 import Header from './components/Header';
 
 function App() {
-  const [projects, setProjects] = useState(['Desenvolvimento de app', 'Front-end web']);
+  // const [projects, setProjects] = useState(['Desenvolvimento de app', 'Front-end web']);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     api.get('projects').then(response => {
-      console.log(response)
+      setProjects(response.data);
     })
   }, [])
 
@@ -30,7 +31,8 @@ function App() {
       {/* <img width={500} src={backgroundImage}/> */}
 
       <ul>
-        {projects.map(project => <li key={project}>{project}</li>)}
+        {/* {projects.map(project => <li key={project}>{project}</li>)} */}
+        {projects.map(project => <li key={project.id}>{project.title}</li>)}
       </ul>
 
       <button type="button" onClick={handleAddProject}>Adicionar Projeto</button>
