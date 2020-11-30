@@ -16,12 +16,19 @@ function App() {
     })
   }, [])
 
-  function handleAddProject() {
+  async function handleAddProject() {
     // projects.push(`Novo Projeto ${Date.now()}`); nao faz mais assim
 
-    setProjects([...projects, `Novo Projeto ${Date.now()}`]) //conceito de imutabilidade
+    // setProjects([...projects, `Novo Projeto ${Date.now()}`]) //conceito de imutabilidade
 
-    console.log(projects);
+    const response = await api.post('projects', {
+      title: `Front-end com VueJS ${Date.now()}`,
+      owner: "Paula Pompeo"
+    })
+
+    const project = response.data;
+
+    setProjects([...projects, project]);
   }
 
   return (
