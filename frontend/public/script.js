@@ -6,3 +6,4 @@
 // babel-loader: responsavel por converter o js para algo que o browser entenda
 // css-loader
 // image-loader
+
